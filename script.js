@@ -173,4 +173,57 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
         animate();
     }
+    // --- 4. VALIDACIÓN DE FORMULARIO (B2B) ---
+    const contactForm = document.getElementById('contact-form');
+    const emailInput = document.getElementById('business-email');
+    const emailError = document.getElementById('email-error');
+    
+    // Lista de dominios gratuitos a bloquear
+    const blockedDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'live.com', 'icloud.com'];
+
+    if (contactForm) {
+        // Validar en tiempo real (al escribir)
+        emailInput.addEventListener('input', function() {
+            const email = this.value.toLowerCase();
+            let isBlocked = false;
+
+            // Revisar si el correo contiene alguno de los dominios bloqueados
+            blockedDomains.forEach(domain => {
+                if (email.includes('@' + domain)) {
+                    isBlocked = true;
+                }
+            });
+
+            if (isBlocked) {
+                // Mostrar error y pintar borde rojo
+                emailError.classList.remove('hidden');
+                emailInput.classList.add('border-red-500', 'text-red-600');
+                emailInput.classList.remove('border-slate-200', 'focus:border-blue-600');
+            } else {
+                // Ocultar error y restaurar estilos
+                emailError.classList.add('hidden');
+                emailInput.classList.remove('border-red-500', 'text-red-600');
+                emailInput.classList.add('border-slate-200', 'focus:border-blue-600');
+            }
+        });
+
+        // Validar al enviar el formulario
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evitar envío real por ahora
+
+            const email = emailInput.value.toLowerCase();
+            const isBlocked = blockedDomains.some(domain => email.includes('@' + domain));
+
+            if (isBlocked) {
+                // Efecto de "sacudida" si intentan enviar con error
+                emailInput.classList.add('animate-[pulse_0.2s_ease-in-out_2]');
+                setTimeout(() => emailInput.classList.remove('animate-[pulse_0.2s_ease-in-out_2]'), 500);
+                alert("Por favor utilice un correo corporativo para continuar.");
+            } else {
+                // Aquí iría la lógica de envío real (backend)
+                alert("Solicitud enviada correctamente. Un asesor le contactará pronto.");
+                contactForm.reset();
+            }
+        });
+    }
 });
