@@ -2,27 +2,26 @@
 body { font-family: 'Inter', sans-serif; }
 .font-display { font-family: 'Space Grotesk', sans-serif; }
 
-/* Animaciones */
+
 @keyframes fade-in-up {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 .animate-up { animation: fade-in-up 0.6s ease-out forwards; }
 
-/* Utilidades para ocultar/mostrar (usadas por JS) */
+
 .hidden { display: none !important; }
 
-/* Scrollbar en modal */
+
 .hide-scroll::-webkit-scrollbar { display: none; }
 .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
 
-/* Contenedor principal con la perspectiva 3D */
+
 .card-container {
-    display: none; /* hidden */
-    perspective: 1000px; /* perspective-1000 */
+    display: none; 
+    perspective: 1000px; 
 }
 
-/* Media query para pantallas grandes (lg:flex) */
 @media (min-width: 1024px) {
     .card-container {
         display: flex;
@@ -31,68 +30,66 @@ body { font-family: 'Inter', sans-serif; }
     }
 }
 
-/* La tarjeta principal */
+
 .card-3d {
     position: relative;
-    width: 24rem; /* w-96 */
-    height: 24rem; /* h-96 */
+    width: 24rem; 
+    height: 24rem; 
     background-color: white;
-    border-radius: 1rem; /* rounded-2xl */
-    padding: 1.5rem; /* p-6 */
+    border-radius: 1rem; 
+    padding: 1.5rem; 
     
-    /* Bordes y Sombras */
-    border: 1px solid #f1f5f9; /* slate-100 */
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+   
+    border: 1px solid #f1f5f9; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
 
-    /* Transformaciones iniciales */
     transform: rotateY(12deg) rotateX(6deg);
     transition: transform 700ms;
     transform-style: preserve-3d;
 }
 
-/* Efecto Hover */
 .card-3d:hover {
     transform: rotate(0deg);
 }
 
-/* Cabecera de la tarjeta */
+
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem; /* mb-8 */
-    border-bottom: 1px solid #f8fafc; /* border-slate-50 */
-    padding-bottom: 1rem; /* pb-4 */
+    margin-bottom: 2rem; 
+    border-bottom: 1px solid #f8fafc; 
+    padding-bottom: 1rem; 
 }
 
-/* Los puntos de colores (semáforo) */
+
 .window-controls {
     display: flex;
     gap: 0.5rem;
 }
 
 .dot {
-    width: 0.75rem; /* w-3 */
-    height: 0.75rem; /* h-3 */
-    border-radius: 9999px; /* rounded-full */
+    width: 0.75rem; 
+    height: 0.75rem;
+    border-radius: 9999px; 
 }
-.dot-red { background-color: #f87171; }    /* red-400 */
-.dot-yellow { background-color: #facc15; } /* yellow-400 */
-.dot-green { background-color: #4ade80; }  /* green-400 */
+.dot-red { background-color: #f87171; }    
+.dot-yellow { background-color: #facc15; } 
+.dot-green { background-color: #4ade80; }  
 
-/* Texto de estado */
+
 .status-text {
     font-family: monospace;
     font-size: 10px;
-    color: #94a3b8; /* slate-400 */
+    color: #94a3b8; 
     text-transform: uppercase;
 }
 
-/* Lista de items */
+
 .items-list {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* space-y-4 */
+    gap: 1rem; 
 }
 
 .item-row {
@@ -105,20 +102,20 @@ body { font-family: 'Inter', sans-serif; }
     border-style: solid;
 }
 
-/* Estilo para el item activo (Azul) */
+
 .item-active {
-    background-color: #eff6ff; /* blue-50 */
-    border-color: #dbeafe; /* blue-100 */
+    background-color: #eff6ff; 
+    border-color: #dbeafe; 
 }
 
-/* Estilo para el item inactivo (Gris) */
+
 .item-inactive {
-    background-color: #f8fafc; /* slate-50 */
-    border-color: #f1f5f9; /* slate-100 */
+    background-color: #f8fafc; 
+    border-color: #f1f5f9; 
     opacity: 0.5;
 }
 
-/* Iconos */
+
 .icon-box {
     padding: 0.5rem;
     border-radius: 0.25rem;
@@ -127,10 +124,10 @@ body { font-family: 'Inter', sans-serif; }
     align-items: center;
     justify-content: center;
 }
-.icon-blue { background-color: #2563eb; } /* blue-600 */
-.icon-gray { background-color: #cbd5e1; } /* slate-300 */
+.icon-blue { background-color: #2563eb; } 
+.icon-gray { background-color: #cbd5e1; } 
 
-/* Barras de carga simuladas (Skeleton) */
+
 .skeleton-bar {
     border-radius: 0.25rem;
 }
@@ -142,7 +139,7 @@ body { font-family: 'Inter', sans-serif; }
 .bg-slate-200 { background-color: #e2e8f0; }
 .bg-slate-100 { background-color: #f1f5f9; }
 
-/* Pie de tarjeta */
+
 .card-footer {
     position: absolute;
     bottom: 1.5rem;
@@ -153,16 +150,16 @@ body { font-family: 'Inter', sans-serif; }
 .footer-content {
     display: flex;
     justify-content: space-between;
-    font-size: 0.75rem; /* text-xs */
+    font-size: 0.75rem; 
     font-family: monospace;
-    color: #94a3b8; /* slate-400 */
-    border-top: 1px solid #f1f5f9; /* slate-100 */
+    color: #94a3b8; 
+    border-top: 1px solid #f1f5f9;
     padding-top: 1rem;
 }
 
 .text-green { color: #22c55e; }
 
-/* --- CLASES DE UTILIDAD (Para soportar script.js) --- */
+
 .hidden {
     display: none !important;
 }
@@ -176,11 +173,11 @@ body { font-family: 'Inter', sans-serif; }
     40%, 60% { transform: translate3d(4px, 0, 0); }
 }
 .input-error {
-    border-color: #ef4444 !important; /* red-500 */
-    color: #dc2626 !important; /* red-600 */
+    border-color: #ef4444 !important; 
+    color: #dc2626 !important; 
 }
 
-/* --- NAVBAR --- */
+
 .navbar {
     position: fixed;
     top: 0;
@@ -206,7 +203,7 @@ body { font-family: 'Inter', sans-serif; }
     align-items: center;
 }
 
-/* Logo */
+
 .brand-logo {
     font-size: 1.25rem;
     font-weight: 700;
@@ -216,7 +213,7 @@ body { font-family: 'Inter', sans-serif; }
 }
 .brand-highlight { color: #2563eb; }
 
-/* Menú de Escritorio */
+
 .desktop-menu {
     display: none;
     gap: 2rem;
@@ -238,7 +235,7 @@ body { font-family: 'Inter', sans-serif; }
 }
 .nav-link:hover { color: #2563eb; }
 
-/* Botones */
+
 .btn-primary {
     padding: 0.625rem 1.25rem;
     background-color: #0f172a;
@@ -265,7 +262,7 @@ body { font-family: 'Inter', sans-serif; }
     padding: 0.5rem;
 }
 
-/* Menú Móvil (Overlay) */
+
 .mobile-overlay {
     position: fixed;
     inset: 0;
@@ -275,12 +272,12 @@ body { font-family: 'Inter', sans-serif; }
     padding-left: 1.5rem;
     padding-right: 1.5rem;
     
-    /* MODIFICADO: Usamos display flex por defecto, y .hidden lo ocultará */
+   
     display: flex; 
     flex-direction: column;
     gap: 1.5rem;
 }
-/* La animación solo se ve cuando quitamos .hidden */
+
 .mobile-overlay:not(.hidden) {
     animation: slideUp 0.3s ease-out;
 }
@@ -297,7 +294,7 @@ body { font-family: 'Inter', sans-serif; }
     text-decoration: none;
 }
 
-/* --- TARJETA 3D --- */
+
 .main-content {
     padding-top: 8rem;
     display: flex;
@@ -347,3 +344,70 @@ body { font-family: 'Inter', sans-serif; }
 .card-footer { position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; }
 .footer-content { display: flex; justify-content: space-between; font-size: 0.75rem; font-family: monospace; color: #94a3b8; border-top: 1px solid #f1f5f9; padding-top: 1rem; }
 .text-green { color: #22c55e; }
+
+.modal-body {
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+    height: 100%; 
+}
+
+
+@media (min-width: 768px) {
+    .modal-body {
+        flex-direction: row; 
+        align-items: stretch; 
+    }
+}
+
+
+#modal-sidebar {
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    padding: 2rem;
+    color: white;
+    box-sizing: border-box;
+    
+    
+    background-color: #1e3a8a; 
+    transition: background-color 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    #modal-sidebar {
+        width: 33.3333%; 
+        height: auto;  
+        min-height: 100%; 
+    }
+}
+
+#modal-sidebar span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+#modal-client {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    font-family: sans-serif;
+}
+
+.tech-tag {
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-family: monospace;
+    width: max-content;
+    margin-bottom: 0.5rem;
+}

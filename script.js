@@ -25,7 +25,7 @@ const casesData = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. LÓGICA DEL MENÚ MÓVIL ---
+
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
             
-            // Opcional: Cambiar icono visualmente dependiendo de si está oculto o no
+        
             const isHidden = mobileMenu.classList.contains('hidden');
             if (!isHidden) {
                 menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
@@ -46,19 +46,19 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
-                // Restaurar icono hamburguesa
+           
                 menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
             });
         });
     }
 
-    // --- 2. LÓGICA DEL MODAL ---
+
     const modal = document.getElementById('case-modal');
     const triggers = document.querySelectorAll('.case-trigger');
     const closeBtn = document.getElementById('close-modal');
     const closeTextBtn = document.getElementById('close-modal-text');
 
-    // Elementos internos del modal para rellenar
+
     const mSidebar = document.getElementById('modal-sidebar');
     const mClient = document.getElementById('modal-client');
     const mTech = document.getElementById('modal-tech');
@@ -67,20 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const mKpis = document.getElementById('modal-kpis');
 
     if (modal && triggers.length > 0) {
-        // Abrir Modal
+    
         triggers.forEach(trigger => {
             trigger.addEventListener('click', function() {
                 const caseId = this.getAttribute('data-id');
                 const data = casesData[caseId];
 
                 if(data) {
-                    // Rellenar datos
+
                     mClient.textContent = data.client;
                     mProject.textContent = data.project;
                     mChallenge.textContent = data.challenge;
-                    
-                    // Limpiar y aplicar clases de color al sidebar (Nota: requiere clases Tailwind o CSS equivalentes)
-                    // Para este ejemplo CSS puro, mantenemos el estilo base y añadimos una clase de datos si es necesario
+ 
                     if (mSidebar) mSidebar.className = `modal-sidebar-content ${data.bg}`;
 
                     // Rellenar Tech Tags
@@ -90,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         ).join('');
                     }
 
-                    // Rellenar KPIs
+        
                     if (mKpis) {
                         mKpis.innerHTML = data.kpis.map(kpi => `
                             <div>
@@ -107,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Cerrar Modal
+   
         function closeModal() {
             modal.classList.add('hidden');
             document.body.style.overflow = '';
@@ -116,13 +114,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if(closeBtn) closeBtn.addEventListener('click', closeModal);
         if(closeTextBtn) closeTextBtn.addEventListener('click', closeModal);
         
-        // Cerrar al hacer click fuera del contenido
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModal();
         });
     }
 
-    // --- 3. ANIMACIÓN CANVAS (FONDO DE RED) ---
     const canvas = document.getElementById('network-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -190,21 +187,20 @@ document.addEventListener('DOMContentLoaded', () => {
         animate();
     }
     
-    // --- 4. VALIDACIÓN DE FORMULARIO (B2B) ---
+
     const contactForm = document.getElementById('contact-form');
     const emailInput = document.getElementById('business-email');
     const emailError = document.getElementById('email-error');
     
-    // Lista de dominios gratuitos a bloquear
+ 
     const blockedDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'live.com', 'icloud.com'];
 
     if (contactForm && emailInput) {
-        // Validar en tiempo real (al escribir)
+
         emailInput.addEventListener('input', function() {
             const email = this.value.toLowerCase();
             let isBlocked = false;
 
-            // Revisar si el correo contiene alguno de los dominios bloqueados
             blockedDomains.forEach(domain => {
                 if (email.includes('@' + domain)) {
                     isBlocked = true;
@@ -212,30 +208,29 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (isBlocked) {
-                // Mostrar error y pintar borde rojo
+        
                 if(emailError) emailError.classList.remove('hidden');
                 emailInput.classList.add('input-error');
             } else {
-                // Ocultar error y restaurar estilos
+         
                 if(emailError) emailError.classList.add('hidden');
                 emailInput.classList.remove('input-error');
             }
         });
 
-        // Validar al enviar el formulario
         contactForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evitar envío real por ahora
+            e.preventDefault(); 
 
             const email = emailInput.value.toLowerCase();
             const isBlocked = blockedDomains.some(domain => email.includes('@' + domain));
 
             if (isBlocked) {
-                // Efecto de "sacudida"
+
                 emailInput.classList.add('shake-animation');
                 setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
                 alert("Por favor utilice un correo corporativo para continuar.");
             } else {
-                // Aquí iría la lógica de envío real (backend)
+
                 alert("Solicitud enviada correctamente. Un asesor le contactará pronto.");
                 contactForm.reset();
             }
