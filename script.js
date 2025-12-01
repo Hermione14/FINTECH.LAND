@@ -1,6 +1,3 @@
-// script.js
-
-// --- DATOS DE LOS CASOS DE ESTUDIO ---
 const casesData = {
     finsus: {
         client: "FINSUS",
@@ -33,15 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+            // Opcional: Cambiar icono visualmente dependiendo de si está oculto o no
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (!isHidden) {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+            }
         });
-    });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                // Restaurar icono hamburguesa
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+            });
+        });
+    }
 
     // --- 2. LÓGICA DEL MODAL ---
     const modal = document.getElementById('case-modal');
@@ -57,54 +66,61 @@ document.addEventListener('DOMContentLoaded', () => {
     const mChallenge = document.getElementById('modal-challenge');
     const mKpis = document.getElementById('modal-kpis');
 
-    // Abrir Modal
-    triggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const caseId = this.getAttribute('data-id');
-            const data = casesData[caseId];
+    if (modal && triggers.length > 0) {
+        // Abrir Modal
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                const caseId = this.getAttribute('data-id');
+                const data = casesData[caseId];
 
-            if(data) {
-                // Rellenar datos
-                mClient.textContent = data.client;
-                mProject.textContent = data.project;
-                mChallenge.textContent = data.challenge;
-                
-                // Limpiar y aplicar clases de color al sidebar
-                mSidebar.className = `md:w-1/3 p-8 text-white flex flex-col justify-end ${data.bg}`;
+                if(data) {
+                    // Rellenar datos
+                    mClient.textContent = data.client;
+                    mProject.textContent = data.project;
+                    mChallenge.textContent = data.challenge;
+                    
+                    // Limpiar y aplicar clases de color al sidebar (Nota: requiere clases Tailwind o CSS equivalentes)
+                    // Para este ejemplo CSS puro, mantenemos el estilo base y añadimos una clase de datos si es necesario
+                    if (mSidebar) mSidebar.className = `modal-sidebar-content ${data.bg}`;
 
-                // Rellenar Tech Tags
-                mTech.innerHTML = data.tech.map(t => 
-                    `<div class="text-xs font-mono bg-white/10 px-2 py-1 w-max backdrop-blur">${t}</div>`
-                ).join('');
+                    // Rellenar Tech Tags
+                    if (mTech) {
+                        mTech.innerHTML = data.tech.map(t => 
+                            `<div class="tech-tag">${t}</div>`
+                        ).join('');
+                    }
 
-                // Rellenar KPIs
-                mKpis.innerHTML = data.kpis.map(kpi => `
-                    <div>
-                        <div class="text-2xl font-bold font-display text-slate-900">${kpi.value}</div>
-                        <div class="text-xs text-slate-500 uppercase font-medium">${kpi.label}</div>
-                    </div>
-                `).join('');
+                    // Rellenar KPIs
+                    if (mKpis) {
+                        mKpis.innerHTML = data.kpis.map(kpi => `
+                            <div>
+                                <div class="kpi-value">${kpi.value}</div>
+                                <div class="kpi-label">${kpi.label}</div>
+                            </div>
+                        `).join('');
+                    }
 
-                // Mostrar modal
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
-            }
+                    // Mostrar modal
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+                }
+            });
         });
-    });
 
-    // Cerrar Modal
-    function closeModal() {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
+        // Cerrar Modal
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        if(closeBtn) closeBtn.addEventListener('click', closeModal);
+        if(closeTextBtn) closeTextBtn.addEventListener('click', closeModal);
+        
+        // Cerrar al hacer click fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
     }
-
-    closeBtn.addEventListener('click', closeModal);
-    closeTextBtn.addEventListener('click', closeModal);
-    
-    // Cerrar al hacer click fuera del contenido
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
 
     // --- 3. ANIMACIÓN CANVAS (FONDO DE RED) ---
     const canvas = document.getElementById('network-canvas');
@@ -173,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         init();
         animate();
     }
+    
     // --- 4. VALIDACIÓN DE FORMULARIO (B2B) ---
     const contactForm = document.getElementById('contact-form');
     const emailInput = document.getElementById('business-email');
@@ -181,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lista de dominios gratuitos a bloquear
     const blockedDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'live.com', 'icloud.com'];
 
-    if (contactForm) {
+    if (contactForm && emailInput) {
         // Validar en tiempo real (al escribir)
         emailInput.addEventListener('input', function() {
             const email = this.value.toLowerCase();
@@ -196,14 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isBlocked) {
                 // Mostrar error y pintar borde rojo
-                emailError.classList.remove('hidden');
-                emailInput.classList.add('border-red-500', 'text-red-600');
-                emailInput.classList.remove('border-slate-200', 'focus:border-blue-600');
+                if(emailError) emailError.classList.remove('hidden');
+                emailInput.classList.add('input-error');
             } else {
                 // Ocultar error y restaurar estilos
-                emailError.classList.add('hidden');
-                emailInput.classList.remove('border-red-500', 'text-red-600');
-                emailInput.classList.add('border-slate-200', 'focus:border-blue-600');
+                if(emailError) emailError.classList.add('hidden');
+                emailInput.classList.remove('input-error');
             }
         });
 
@@ -215,9 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const isBlocked = blockedDomains.some(domain => email.includes('@' + domain));
 
             if (isBlocked) {
-                // Efecto de "sacudida" si intentan enviar con error
-                emailInput.classList.add('animate-[pulse_0.2s_ease-in-out_2]');
-                setTimeout(() => emailInput.classList.remove('animate-[pulse_0.2s_ease-in-out_2]'), 500);
+                // Efecto de "sacudida"
+                emailInput.classList.add('shake-animation');
+                setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
                 alert("Por favor utilice un correo corporativo para continuar.");
             } else {
                 // Aquí iría la lógica de envío real (backend)

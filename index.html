@@ -9,34 +9,42 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 <body class="bg-white text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
 
-    <nav class="fixed w-full z-40 bg-white/80 backdrop-blur-md border-b border-slate-100 h-20 flex items-center transition-all">
-        <div class="max-w-7xl mx-auto px-6 w-full flex justify-between items-center">
-            <div class="text-xl font-display font-bold tracking-tighter cursor-pointer" onclick="window.scrollTo(0,0)">
-                fintech<span class="text-blue-600">.land</span>
+       <!-- --- NAVBAR --- -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Logo -->
+            <div class="brand-logo" onclick="window.scrollTo(0,0)">
+                fintech<span class="brand-highlight">.land</span>
             </div>
             
-            <div class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
-                <a href="#services" class="hover:text-blue-600 transition-colors">Soluciones</a>
-                <a href="#team" class="hover:text-blue-600 transition-colors">Expertos</a>
-                <a href="#cases" class="hover:text-blue-600 transition-colors">Casos</a>
-                <a href="#contact" class="hover:text-blue-600 transition-colors">Contacto</a>
+            <!-- Menú Escritorio -->
+            <div class="desktop-menu">
+                <a href="#services" class="nav-link">Soluciones</a>
+                <a href="#team" class="nav-link">Expertos</a>
+                <a href="#cases" class="nav-link">Casos</a>
+                <a href="#contact" class="nav-link">Contacto</a>
             </div>
-            <button class="px-5 py-2.5 bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hidden md:block hover:bg-slate-800 transition-colors">
+
+            <!-- Botón Login (Escritorio) -->
+            <button class="btn-primary">
                 Acceso Clientes
             </button>
             
-            <button id="menu-btn" class="md:hidden text-slate-600">
+            <!-- Botón Móvil (Hamburguesa) -->
+            <button id="menu-btn" class="btn-mobile-toggle">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
             </button>
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-30 bg-white pt-24 px-6 md:hidden hidden animate-up">
-        <div class="flex flex-col gap-6 text-2xl font-display font-medium text-slate-900">
+    <!-- Menú Móvil (Overlay) -->
+    <!-- NOTA: Añadimos la clase 'hidden' por defecto para que el script pueda alternarla -->
+    <div id="mobile-menu" class="mobile-overlay hidden">
+        <div class="flex flex-col gap-6">
             <a href="#services" class="mobile-link">Soluciones</a>
             <a href="#team" class="mobile-link">Expertos</a>
             <a href="#cases" class="mobile-link">Casos de Éxito</a>
@@ -73,45 +81,53 @@
                 </div>
             </div>
 
-            <div class="hidden lg:flex justify-center items-center perspective-1000">
-                <div class="relative w-96 h-96 bg-white rounded-2xl shadow-2xl border border-slate-100 p-6 transform rotate-y-12 rotate-x-6 hover:rotate-0 transition-transform duration-700">
-                    <div class="flex justify-between items-center mb-8 border-b border-slate-50 pb-4">
-                        <div class="flex gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                        </div>
-                        <div class="font-mono text-[10px] text-slate-400">API_STATUS: ONLINE</div>
+           <div class="card-container">
+        
+        <div class="card-3d">
+            
+            <div class="card-header">
+                <div class="window-controls">
+                    <div class="dot dot-red"></div>
+                    <div class="dot dot-yellow"></div>
+                    <div class="dot dot-green"></div>
+                </div>
+                <div class="status-text">API_STATUS: ONLINE</div>
+            </div>
+
+            <div class="items-list">
+                
+                <!-- Item Activo -->
+                <div class="item-row item-active">
+                    <div class="icon-box icon-blue">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
                     </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-4 p-4 bg-blue-50 rounded-lg border border-blue-100">
-                            <div class="bg-blue-600 p-2 rounded text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
-                            </div>
-                            <div>
-                                <div class="h-2 w-24 bg-blue-200 rounded mb-1"></div>
-                                <div class="h-2 w-16 bg-blue-100 rounded"></div>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg border border-slate-100 opacity-50">
-                            <div class="bg-slate-300 p-2 rounded text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
-                            </div>
-                            <div>
-                                <div class="h-2 w-24 bg-slate-200 rounded mb-1"></div>
-                                <div class="h-2 w-16 bg-slate-100 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="absolute bottom-6 left-6 right-6">
-                        <div class="flex justify-between text-xs font-mono text-slate-400 border-t border-slate-100 pt-4">
-                            <span>Latency</span>
-                            <span class="text-green-500">14ms</span>
-                        </div>
+                    <div>
+                        <div class="skeleton-bar sk-long bg-blue-200"></div>
+                        <div class="skeleton-bar sk-short bg-blue-100"></div>
                     </div>
                 </div>
+
+        
+                <div class="item-row item-inactive">
+                    <div class="icon-box icon-gray">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                    </div>
+                    <div>
+                        <div class="skeleton-bar sk-long bg-slate-200"></div>
+                        <div class="skeleton-bar sk-short bg-slate-100"></div>
+                    </div>
+                </div>
+
             </div>
+            <div class="card-footer">
+                <div class="footer-content">
+                    <span>Latency</span>
+                    <span class="text-green">14ms</span>
+                </div>
+            </div>
+
         </div>
+    </div>
     </header>
 
     <section id="services" class="py-24 bg-white relative z-10">
@@ -348,11 +364,6 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                         </div>
                     </div>
-                </div>
-
-                <div>
-                    <label class="text-xs font-bold uppercase tracking-widest text-slate-500 block mb-2">Detalles del Proyecto</label>
-                    <textarea rows="3" class="w-full bg-slate-50 border border-slate-200 p-4 focus:outline-none focus:border-blue-600 transition-colors placeholder-slate-400 resize-none" placeholder="Describa brevemente su objetivo técnico o de negocio..."></textarea>
                 </div>
 
                 <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/30">
