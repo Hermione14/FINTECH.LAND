@@ -1,6 +1,3 @@
-// script.js
-
-// --- DATOS DE LOS CASOS DE ESTUDIO ---
 const casesData = {
     finsus: {
         client: "FINSUS",
@@ -28,28 +25,40 @@ const casesData = {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 1. LÓGICA DEL MENÚ MÓVIL ---
+
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
 
-    menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-    });
-
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
+    if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            
+        
+            const isHidden = mobileMenu.classList.contains('hidden');
+            if (!isHidden) {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>';
+            } else {
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+            }
         });
-    });
 
-    // --- 2. LÓGICA DEL MODAL ---
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+           
+                menuBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>';
+            });
+        });
+    }
+
+
     const modal = document.getElementById('case-modal');
     const triggers = document.querySelectorAll('.case-trigger');
     const closeBtn = document.getElementById('close-modal');
     const closeTextBtn = document.getElementById('close-modal-text');
 
-    // Elementos internos del modal para rellenar
+
     const mSidebar = document.getElementById('modal-sidebar');
     const mClient = document.getElementById('modal-client');
     const mTech = document.getElementById('modal-tech');
@@ -57,56 +66,60 @@ document.addEventListener('DOMContentLoaded', () => {
     const mChallenge = document.getElementById('modal-challenge');
     const mKpis = document.getElementById('modal-kpis');
 
-    // Abrir Modal
-    triggers.forEach(trigger => {
-        trigger.addEventListener('click', function() {
-            const caseId = this.getAttribute('data-id');
-            const data = casesData[caseId];
+    if (modal && triggers.length > 0) {
+    
+        triggers.forEach(trigger => {
+            trigger.addEventListener('click', function() {
+                const caseId = this.getAttribute('data-id');
+                const data = casesData[caseId];
 
-            if(data) {
-                // Rellenar datos
-                mClient.textContent = data.client;
-                mProject.textContent = data.project;
-                mChallenge.textContent = data.challenge;
-                
-                // Limpiar y aplicar clases de color al sidebar
-                mSidebar.className = `md:w-1/3 p-8 text-white flex flex-col justify-end ${data.bg}`;
+                if(data) {
 
-                // Rellenar Tech Tags
-                mTech.innerHTML = data.tech.map(t => 
-                    `<div class="text-xs font-mono bg-white/10 px-2 py-1 w-max backdrop-blur">${t}</div>`
-                ).join('');
+                    mClient.textContent = data.client;
+                    mProject.textContent = data.project;
+                    mChallenge.textContent = data.challenge;
+ 
+                    if (mSidebar) mSidebar.className = `modal-sidebar-content ${data.bg}`;
 
-                // Rellenar KPIs
-                mKpis.innerHTML = data.kpis.map(kpi => `
-                    <div>
-                        <div class="text-2xl font-bold font-display text-slate-900">${kpi.value}</div>
-                        <div class="text-xs text-slate-500 uppercase font-medium">${kpi.label}</div>
-                    </div>
-                `).join('');
+                    // Rellenar Tech Tags
+                    if (mTech) {
+                        mTech.innerHTML = data.tech.map(t => 
+                            `<div class="tech-tag">${t}</div>`
+                        ).join('');
+                    }
 
-                // Mostrar modal
-                modal.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
-            }
+        
+                    if (mKpis) {
+                        mKpis.innerHTML = data.kpis.map(kpi => `
+                            <div>
+                                <div class="kpi-value">${kpi.value}</div>
+                                <div class="kpi-label">${kpi.label}</div>
+                            </div>
+                        `).join('');
+                    }
+
+                    // Mostrar modal
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden'; // Evitar scroll de fondo
+                }
+            });
         });
-    });
 
-    // Cerrar Modal
-    function closeModal() {
-        modal.classList.add('hidden');
-        document.body.style.overflow = '';
+   
+        function closeModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        if(closeBtn) closeBtn.addEventListener('click', closeModal);
+        if(closeTextBtn) closeTextBtn.addEventListener('click', closeModal);
+        
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
     }
 
-    closeBtn.addEventListener('click', closeModal);
-    closeTextBtn.addEventListener('click', closeModal);
-    
-    // Cerrar al hacer click fuera del contenido
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
-
-    // --- 3. ANIMACIÓN CANVAS (FONDO DE RED) ---
     const canvas = document.getElementById('network-canvas');
     if (canvas) {
         const ctx = canvas.getContext('2d');
@@ -172,5 +185,55 @@ document.addEventListener('DOMContentLoaded', () => {
         resize();
         init();
         animate();
+    }
+    
+
+    const contactForm = document.getElementById('contact-form');
+    const emailInput = document.getElementById('business-email');
+    const emailError = document.getElementById('email-error');
+    
+ 
+    const blockedDomains = ['gmail.com', 'hotmail.com', 'outlook.com', 'yahoo.com', 'live.com', 'icloud.com'];
+
+    if (contactForm && emailInput) {
+
+        emailInput.addEventListener('input', function() {
+            const email = this.value.toLowerCase();
+            let isBlocked = false;
+
+            blockedDomains.forEach(domain => {
+                if (email.includes('@' + domain)) {
+                    isBlocked = true;
+                }
+            });
+
+            if (isBlocked) {
+        
+                if(emailError) emailError.classList.remove('hidden');
+                emailInput.classList.add('input-error');
+            } else {
+         
+                if(emailError) emailError.classList.add('hidden');
+                emailInput.classList.remove('input-error');
+            }
+        });
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault(); 
+
+            const email = emailInput.value.toLowerCase();
+            const isBlocked = blockedDomains.some(domain => email.includes('@' + domain));
+
+            if (isBlocked) {
+
+                emailInput.classList.add('shake-animation');
+                setTimeout(() => emailInput.classList.remove('shake-animation'), 500);
+                alert("Por favor utilice un correo corporativo para continuar.");
+            } else {
+
+                alert("Solicitud enviada correctamente. Un asesor le contactará pronto.");
+                contactForm.reset();
+            }
+        });
     }
 });
