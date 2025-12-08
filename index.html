@@ -76,13 +76,10 @@
                     Construimos la tecnología que los bancos tradicionales tardarían años en desplegar. Cumplimiento,
                     seguridad y UX en una sola API.
                 </p>
-                <form action="#contact"
-                    class="group relative flex items-center h-[56px] bg-slate-900 rounded shadow-lg shadow-blue-900/20 overflow-hidden transition-all duration-700 hover:w-[320px] w-fit">
-
-                    <form
-                        class="group flex items-center justify-between rounded-full bg-slate-900 p-1 w-fit overflow-hidden transition-all duration-700 ease-in-out">
-
-                        <span class="whitespace-nowrap px-5 font-bold text-white transition-all duration-700 ease-in-out overflow-hidden
+                <div class="flex flex-wrap gap-4">
+                    <form class="group flex items-center justify-between rounded-full bg-slate-900 p-1 w-fit overflow-hidden transition-all duration-700 ease-in-out">
+    
+    <span class="whitespace-nowrap px-5 font-bold text-white transition-all duration-700 ease-in-out overflow-hidden
                  max-w-[200px] opacity-100
                  group-hover:max-w-0 group-hover:opacity-0 group-hover:px-0 
                  group-focus-within:max-w-0 group-focus-within:opacity-0 group-focus-within:px-0">
@@ -92,19 +89,19 @@
                         <input type="email" placeholder="tu@correo.com" required class="border-none bg-transparent text-white placeholder-slate-400 focus:ring-0 transition-all duration-700 ease-in-out
                w-0 p-0 opacity-0
                group-hover:w-64 group-hover:px-4 group-hover:opacity-100
-               group-focus-within:w-64 group-focus-within:px-4 group-focus-within:opacity-100" />
+               group-focus-within:w-64 group-focus-within:px-4 group-focus-within:opacity-100"
+    />
 
-                        <button type="submit"
-                            class="flex-shrink-0 pr-5 pl-3 h-full flex items-center justify-center text-white transition-all duration-700 group-hover:bg-slate-800 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="transition-transform duration-700 ease-in-out group-hover:translate-x-1 group-focus-within:translate-x-1">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </button>
+    <button type="submit" class="flex-shrink-0 pr-5 pl-3 h-full flex items-center justify-center text-white transition-all duration-700 group-hover:bg-slate-800 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="transition-transform duration-700 ease-in-out group-hover:translate-x-1 group-focus-within:translate-x-1">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+    </button>
 
-                    </form>
+</form>
+                </div>
             </div>
 
             <div class="card-container">
@@ -439,16 +436,14 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-end mb-12">
                 <h2 class="text-3xl md:text-4xl font-display font-bold">Casos de Éxito.</h2>
-                <span class="hidden md:block text-xs font-bold tracking-widest text-slate-400 uppercase">
-                    Portafolio Seleccionado
-                </span>
+                <span class="hidden md:block text-xs font-bold tracking-widest text-slate-400 uppercase">Portafolio
+                    Seleccionado</span>
             </div>
 
             <div class="space-y-8">
-
                 <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
                     data-id="finsus">
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative z-10 bg-white">
+                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
                         <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">FINSUS</div>
                         <div
                             class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
@@ -464,23 +459,30 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="md:w-1/2 h-64 md:h-full relative bg-slate-100 overflow-hidden">
-                        <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
-                            <source src="videos/finsus.mp4" type="video/mp4">
-                            Tu navegador no soporta videos HTML5.
-                        </video>
+                    <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
+                        <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
+                        </div>
+                         <video 
+    class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+    autoplay 
+    loop 
+    muted 
+    playsinline>
+    <source src="videos/finsus.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
                     </div>
                 </div>
 
                 <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
                     data-id="montepio">
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative z-10 bg-white">
-                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">MONTEPIO</div>
+                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">MONTEPÍO</div>
                         <div
                             class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                            TRANSFORMACIÓN
+                            VALUACIÓN IA
                         </div>
-                        <div class="text-lg font-medium text-slate-500 mb-6">Digitalización</div>
+                        <div class="text-lg font-medium text-slate-500 mb-6">Tiempo Real</div>
                         <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
                             Ver Detalles
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -490,23 +492,36 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="md:w-1/2 h-64 md:h-full relative bg-slate-100 overflow-hidden">
-                        <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
-                            <source src="videos/montepio.mp4" type="video/mp4">
-                            Tu navegador no soporta videos HTML5.
-                        </video>
+                    <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
+                        <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
+                        </div>
+                         <video 
+    class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+    autoplay 
+    loop 
+    muted 
+    playsinline>
+    <source src="videos/montepio.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
                     </div>
                 </div>
-
                 <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
-                    data-id="imss">
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative z-10 bg-white">
-                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">IMSS</div>
+                    data-id="crediquincena">
+                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">
+                            CREDIQUINCENA / JUBILADOS IMSS
+                        </div>
+
                         <div
                             class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                            SALUD DIGITAL
+                            EFICIENCIA OPERATIVA
                         </div>
-                        <div class="text-lg font-medium text-slate-500 mb-6">Innovación Pública</div>
+
+                        <div class="text-lg font-medium text-slate-500 mb-6">
+                            +6,000 Expedientes Digitales
+                        </div>
+
                         <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
                             Ver Detalles
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -516,11 +531,20 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="md:w-1/2 h-64 md:h-full relative bg-slate-100 overflow-hidden">
-                        <video class="absolute inset-0 w-full h-full object-cover" autoplay loop muted playsinline>
-                            <source src="videos/imss.mp4" type="video/mp4">
-                            Tu navegador no soporta videos HTML5.
-                        </video>
+
+                    <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
+                        <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
+                        </div>
+
+                        <video 
+    class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+    autoplay 
+    loop 
+    muted 
+    playsinline>
+    <source src="videos/imss.mp4" type="video/mp4">
+    Tu navegador no soporta videos HTML5.
+</video>
                     </div>
                 </div>
 
