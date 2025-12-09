@@ -419,3 +419,26 @@ body {
   width: max-content;
   margin-bottom: 0.5rem;
 }
+
+/*Animacion Header*/
+.headline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  height: 1.4em; /* ajustar a tu fuente */
+  display: inline-block;
+}
+
+.rotating-word {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.2em;
+  position: relative;
+}
+
+/*Animacion split*/
+.line-mask {
+  overflow: hidden; /* evita que se corten en la animación */
+  display: block;
+}
