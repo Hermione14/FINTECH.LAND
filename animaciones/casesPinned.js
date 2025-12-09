@@ -5,7 +5,7 @@ gsap.set(".block", {
   zIndex: (i, target, targets) => targets.length - i,
 });
 
-// Animar videos colapsando hacia arriba
+// Bloques que colapsan
 gsap.utils.toArray(".block:not(:last-of-type)").forEach((block, i) => {
   gsap
     .timeline({
@@ -20,7 +20,7 @@ gsap.utils.toArray(".block:not(:last-of-type)").forEach((block, i) => {
     .to(block, { height: 0 });
 });
 
-// Animar textos
+// Text panels animation
 gsap.utils.toArray(".panel-text").forEach((panel, i) => {
   gsap
     .timeline({
@@ -36,11 +36,11 @@ gsap.utils.toArray(".panel-text").forEach((panel, i) => {
     .to(panel, { opacity: 0, y: "0%", duration: 0.3 }, 0.6);
 });
 
-// Paneles fijados
+// Pinned section
 ScrollTrigger.create({
   trigger: ".cases-animated",
   pin: true,
   scrub: true,
   start: "top top",
-  end: () => "+=" + window.innerHeight * 4,
+  end: () => "+=" + window.innerHeight * 3,
 });

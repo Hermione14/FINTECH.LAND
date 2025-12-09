@@ -446,6 +446,7 @@ body {
 /*Animacion cases*/
 .cases-animated {
   display: flex;
+  align-items: stretch;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
@@ -459,7 +460,14 @@ body {
   height: 75vh;
 }
 
+.text-wrap,
+.p-wrap {
+  flex: 1; /* Ocupan el mismo espacio */
+  height: 100%; /* Se expanden al alto del contenedor padre */
+}
+
 .panel-text {
+  background: rgba(37, 99, 235, 0.85);
   position: absolute;
   inset: 0;
   text-align: left;
@@ -515,4 +523,52 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+/* ---------------------------------------- */
+/* 2) TEXT PANELS WITH HOVER */
+/* ---------------------------------------- */
+.panel-text {
+  position: absolute;
+  inset: 0;
+  padding: 60px 25px;
+  transform: translateY(100%);
+  opacity: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.panel-text:hover .case-title {
+  color: #2563eb; /* azul fintech */
+}
+
+.panel-text:hover .case-subtitle {
+  transform: translateY(-2px);
+}
+
+.panel-text:hover .case-cta {
+  color: #2563eb;
+  transform: translateX(4px);
+}
+
+.case-subtitle,
+.case-cta {
+  transition: all 0.3s ease;
+}
+
+/* ---------------------------------------- */
+/* 3) VIDEO FIX (ratio + crop + cover) */
+/* ---------------------------------------- */
+.p-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 45%;
+  height: 75vh;
+}
+
+.block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
