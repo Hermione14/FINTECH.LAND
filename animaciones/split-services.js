@@ -1,26 +1,19 @@
-gsap.registerPlugin(SplitText, ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const elements = document.querySelectorAll(".split");
+document.querySelectorAll(".split").forEach((el) => {
+  const words = el.innerText.split(" ");
+  el.innerHTML = words.map((w) => `<span class="word">${w}</span>`).join(" ");
 
-  elements.forEach((el) => {
-    // Split per lines
-    const split = new SplitText(el, {
-      type: "lines",
-      linesClass: "line-mask",
-    });
-
-    gsap.from(split.lines, {
-      yPercent: 100,
-      opacity: 0,
-      duration: 0.7,
-      ease: "expo.out",
-      stagger: 0.12,
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%", // cuando 85% del viewport llega al texto
-        toggleActions: "play none none reverse",
-      },
-    });
+  gsap.from(el.querySelectorAll(".word"), {
+    scrollTrigger: {
+      trigger: el,
+      start: "top 90%",
+      toggleActions: "play none none reverse",
+    },
+    opacity: 0,
+    y: 20,
+    stagger: 0.05,
+    duration: 0.4,
+    ease: "power3.out",
   });
 });
