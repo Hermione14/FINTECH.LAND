@@ -24,7 +24,7 @@ const casesData = {
     ],
   },
   crediquincena: {
-    client: "CREDIQUINCENA / JUBILADOS IMSS",
+    client: "CREDIQUINCENA",
     bg: "bg-emerald-900",
     project: "App de Prospección y Originación de Crédito",
     challenge:
