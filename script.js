@@ -210,14 +210,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const emailInput = document.getElementById("business-email");
   const emailError = document.getElementById("email-error");
 
-  const blockedDomains = [
-    "gmail.com",
-    "hotmail.com",
-    "outlook.com",
-    "yahoo.com",
-    "live.com",
-    "icloud.com",
-  ];
+  const blockedDomains = ["n.com"];
 
   if (contactForm && emailInput) {
     emailInput.addEventListener("input", function () {
