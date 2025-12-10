@@ -32,7 +32,7 @@ gsap.utils.toArray(".panel-text").forEach((panel, i) => {
         invalidateOnRefresh: true,
       },
     })
-    .to(panel, { opacity: 1, y: "40%", duration: 0.3 })
+    .to(panel, { opacity: 1, y: "5%", duration: 0.3 })
     .to(panel, { opacity: 0, y: "0%", duration: 0.3 }, 0.6);
 });
 
