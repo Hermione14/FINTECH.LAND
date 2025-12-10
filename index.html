@@ -11,10 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
+    <!-- Animaciones GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+
+
 
     <link rel="stylesheet" href="index.css">
 </head>
@@ -72,10 +74,10 @@
                         Velocidad Fintech.
                     </span>
                 </h1>
-                <p class="text-xl text-slate-500 font-light mb-8 max-w-lg leading-relaxed">
-                    Construimos la tecnología que los bancos tradicionales tardarían años en desplegar. Cumplimiento,
-                    seguridad y UX en una sola API.
-                </p>
+                <div class="headline">
+                    Construimos <span class="rotating-word"></span>
+                </div>
+
                 <div class="flex flex-wrap gap-4">
                     <form
                         class="group flex items-center justify-between rounded-full bg-slate-900 p-1 w-fit overflow-hidden transition-all duration-700 ease-in-out">
@@ -170,8 +172,8 @@
     <section id="services" class="py-24 bg-white relative z-10">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-16 max-w-2xl">
-                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Arquitectura Modular.</h2>
-                <p class="text-lg text-slate-500 font-light">
+                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4 split">Arquitectura Modular.</h2>
+                <p class="text-lg text-slate-500 font-light split">
                     No reinventamos la rueda. Ensamblamos motores financieros de alto rendimiento.
                 </p>
             </div>
@@ -187,8 +189,9 @@
                             <path d="M12 18h.01" />
                         </svg>
                     </div>
-                    <h3 class="font-display font-bold text-lg mb-3">Apps Financieras & Wallets</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Experiencia móvil nativa para IOS y Android.
+                    <h3 class="font-display font-bold text-lg mb-3 split">Apps Financieras & Wallets</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4 split">Experiencia móvil nativa para IOS y
+                        Android.
                         Transferencias SPEI, pagos QR, apartados de ahorro y gestión de tarjetas. </p>
                 </div>
                 <div
@@ -206,8 +209,8 @@
                             <path d="M15 9h.01" />
                         </svg>
                     </div>
-                    <h3 class="font-display font-bold text-lg mb-3">Onboarding Digital (KYC)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Motor de alta de clientes 100% remoto.
+                    <h3 class="font-display font-bold text-lg mb-3 split">Onboarding Digital (KYC)</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4 split">Motor de alta de clientes 100% remoto.
                         Validación biométrica (Liveness), consulta a RENAPO/Listas Negras y firma digital. Cumplimiento
                         CNBV. </p>
                 </div>
@@ -227,8 +230,9 @@
                             <path d="M15.357 13.25a4 4 0 0 0-1-7.625" />
                         </svg>
                     </div>
-                    <h3 class="font-display font-bold text-lg mb-3">IA & Scoring Crediticio</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Modelos predictivos para otorgamiento de
+                    <h3 class="font-display font-bold text-lg mb-3 split">IA & Scoring Crediticio</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4 split">Modelos predictivos para otorgamiento
+                        de
                         crédito y cobranza. Asistentes virtuales (LLMs) que automatizan la atención al cliente 24/7.</p>
                 </div>
                 <div
@@ -243,8 +247,8 @@
                             <line x1="6" x2="6.01" y1="18" y2="18" />
                         </svg>
                     </div>
-                    <h3 class="font-display font-bold text-lg mb-3">Fábrica de APIs & Core</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Arquitectura de microservicios en Nube
+                    <h3 class="font-display font-bold text-lg mb-3 split">Fábrica de APIs & Core</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-4 split">Arquitectura de microservicios en Nube
                         (AWS/Azure). Conectividad segura entre su Core Bancario y el ecosistema Fintech.</p>
                 </div>
             </div>
@@ -562,6 +566,9 @@
 </div>
     </section>
 
+
+
+
     <section id="contact" class="bg-slate-900 text-white py-24">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
             <div>
@@ -746,7 +753,9 @@
             </div>
         </div>
     </div>
-
+    <script src="animaciones/split-services.js"></script>
+    <script src="animaciones/header.js"></script>
+    <script src="animaciones/casesPinned.js"></script>
     <script src="script.js"></script>
 </body>
 

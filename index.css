@@ -419,3 +419,155 @@ body {
   width: max-content;
   margin-bottom: 0.5rem;
 }
+
+/*Animacion Header*/
+.headline {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  overflow: hidden;
+  height: 1.4em; /* ajustar a tu fuente */
+  display: inline-block;
+}
+
+.rotating-word {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1.2em;
+  position: relative;
+}
+
+/*Animacion split*/
+.word {
+  display: inline-block;
+  white-space: pre;
+}
+
+/*Animacion cases*/
+.cases-animated {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+  background: white;
+}
+
+.text-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 420px;
+  height: 75vh;
+}
+
+.text-wrap,
+.p-wrap {
+  flex: 1; /* Ocupan el mismo espacio */
+  height: 100%; /* Se expanden al alto del contenedor padre */
+}
+
+.panel-text {
+  position: absolute;
+  inset: 0;
+  text-align: left;
+  padding: 60px 20px;
+  transform: translateY(100%);
+  opacity: 0;
+  cursor: pointer;
+}
+
+.panel-text .case-kicker {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 2px;
+}
+
+.panel-text .case-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.panel-text .case-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 10px;
+  color: #64748b;
+}
+
+.panel-text .case-cta {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #0f172a;
+}
+
+.p-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 45%;
+  height: 75vh;
+}
+
+.block {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------------------------------------- */
+/* 2) TEXT PANELS WITH HOVER */
+/* ---------------------------------------- */
+.panel-text {
+  position: absolute;
+  inset: 0;
+  padding: 60px 25px;
+  transform: translateY(100%);
+  opacity: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.panel-text:hover .case-title {
+  color: #2563eb; /* azul fintech */
+}
+
+.panel-text:hover .case-subtitle {
+  transform: translateY(-2px);
+}
+
+.panel-text:hover .case-cta {
+  color: #2563eb;
+  transform: translateX(4px);
+}
+
+.case-subtitle,
+.case-cta {
+  transition: all 0.3s ease;
+}
+
+/* ---------------------------------------- */
+/* 3) VIDEO FIX (ratio + crop + cover) */
+/* ---------------------------------------- */
+.p-wrap {
+  position: relative;
+  overflow: hidden;
+  width: 45%;
+  height: 75vh;
+}
+
+.block video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
