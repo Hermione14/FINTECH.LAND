@@ -426,7 +426,7 @@ body {
   font-weight: 700;
   color: rgb(0, 0, 0);
   overflow: hidden;
-  height: 1.4em; /* ajustar a tu fuente */
+  height: 1.4em;
   display: inline-block;
 }
 
