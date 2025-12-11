@@ -283,6 +283,7 @@ body {
   cursor: pointer;
   transition: background-color 0.2s;
   display: none;
+  border-radius: 1rem;
 }
 @media (min-width: 768px) {
   .btn-primary {
