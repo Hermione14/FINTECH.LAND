@@ -17,6 +17,8 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body class="bg-white text-slate-900 antialiased selection:bg-blue-100 selection:text-blue-900">
@@ -166,90 +168,74 @@
     </header>
 
     <section id="services" class="py-24 bg-white relative z-10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 max-w-2xl">
-                <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Arquitectura Modular.</h2>
-                <p class="text-lg text-slate-500 font-light">
-                    No reinventamos la rueda. Ensamblamos motores financieros de alto rendimiento.
-                </p>
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="mb-16 max-w-2xl">
+            <h2 class="text-3xl md:text-4xl font-display font-bold mb-4">Arquitectura Modular.</h2>
+            <p class="text-lg text-slate-500 font-light">
+                No reinventamos la rueda. Ensamblamos motores financieros de alto rendimiento.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="group p-8 border border-slate-100 rounded-2xl hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
+                <div class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
+                        <path d="M12 18h.01" />
+                    </svg>
+                </div>
+                <h3 class="font-display font-bold text-lg mb-3">Apps Financieras & Wallets</h3>
+                <p class="text-sm text-slate-500 leading-relaxed mb-4">Experiencia móvil nativa para IOS y Android. Transferencias SPEI, pagos QR, apartados de ahorro y gestión de tarjetas.</p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <div
-                    class="group p-8 border border-slate-100 hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
-                            <path d="M12 18h.01" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg mb-3">Apps Financieras & Wallets</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Experiencia móvil nativa para IOS y Android.
-                        Transferencias SPEI, pagos QR, apartados de ahorro y gestión de tarjetas. </p>
+            <div class="group p-8 border border-slate-100 rounded-2xl hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
+                <div class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                        <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                        <path d="M9 9h.01" />
+                        <path d="M15 9h.01" />
+                    </svg>
                 </div>
-                <div
-                    class="group p-8 border border-slate-100 hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-                            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-                            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-                            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2" />
-                            <path d="M9 9h.01" />
-                            <path d="M15 9h.01" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg mb-3">Onboarding Digital (KYC)</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Motor de alta de clientes 100% remoto.
-                        Validación biométrica (Liveness), consulta a RENAPO/Listas Negras y firma digital. Cumplimiento
-                        CNBV. </p>
+                <h3 class="font-display font-bold text-lg mb-3">Onboarding Digital (KYC)</h3>
+                <p class="text-sm text-slate-500 leading-relaxed mb-4">Motor de alta de clientes 100% remoto. Validación biométrica (Liveness), consulta a RENAPO/Listas Negras y firma digital. Cumplimiento CNBV.</p>
+            </div>
+
+            <div class="group p-8 border border-slate-100 rounded-2xl hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
+                <div class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
+                        <path d="M9 13a4.5 4.5 0 0 0 3-4" />
+                        <path d="M6.003 5.125A3 3 0 0 1 19.528 16.32" />
+                        <path d="M12 18a4 4 0 0 0 4-4 4.5 4.5 0 0 0-3-4" />
+                        <path d="M15.357 5.625A4 4 0 0 0 12 18Z" />
+                        <path d="M16.357 5.625a4 4 0 0 1 1 7.625" />
+                        <path d="M15.357 13.25a4 4 0 0 0-1-7.625" />
+                    </svg>
                 </div>
-                <div
-                    class="group p-8 border border-slate-100 hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" />
-                            <path d="M9 13a4.5 4.5 0 0 0 3-4" />
-                            <path d="M6.003 5.125A3 3 0 0 1 19.528 16.32" />
-                            <path d="M12 18a4 4 0 0 0 4-4 4.5 4.5 0 0 0-3-4" />
-                            <path d="M15.357 5.625A4 4 0 0 0 12 18Z" />
-                            <path d="M16.357 5.625a4 4 0 0 1 1 7.625" />
-                            <path d="M15.357 13.25a4 4 0 0 0-1-7.625" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg mb-3">IA & Scoring Crediticio</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Modelos predictivos para otorgamiento de
-                        crédito y cobranza. Asistentes virtuales (LLMs) que automatizan la atención al cliente 24/7.</p>
+                <h3 class="font-display font-bold text-lg mb-3">IA & Scoring Crediticio</h3>
+                <p class="text-sm text-slate-500 leading-relaxed mb-4">Modelos predictivos para otorgamiento de crédito y cobranza. Asistentes virtuales (LLMs) que automatizan la atención al cliente 24/7.</p>
+            </div>
+
+            <div class="group p-8 border border-slate-100 rounded-2xl hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
+                <div class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
+                        <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
+                        <line x1="6" x2="6.01" y1="6" y2="6" />
+                        <line x1="6" x2="6.01" y1="18" y2="18" />
+                    </svg>
                 </div>
-                <div
-                    class="group p-8 border border-slate-100 hover:border-blue-500 transition-all duration-300 bg-white hover:shadow-2xl hover:-translate-y-1">
-                    <div
-                        class="w-12 h-12 bg-slate-50 text-slate-900 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
-                            <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
-                            <line x1="6" x2="6.01" y1="6" y2="6" />
-                            <line x1="6" x2="6.01" y1="18" y2="18" />
-                        </svg>
-                    </div>
-                    <h3 class="font-display font-bold text-lg mb-3">Fábrica de APIs & Core</h3>
-                    <p class="text-sm text-slate-500 leading-relaxed mb-4">Arquitectura de microservicios en Nube
-                        (AWS/Azure). Conectividad segura entre su Core Bancario y el ecosistema Fintech.</p>
-                </div>
+                <h3 class="font-display font-bold text-lg mb-3">Fábrica de APIs & Core</h3>
+                <p class="text-sm text-slate-500 leading-relaxed mb-4">Arquitectura de microservicios en Nube (AWS/Azure). Conectividad segura entre su Core Bancario y el ecosistema Fintech.</p>
             </div>
         </div>
-    </section>
-
-    <section id="team" class="py-24 bg-black text-white overflow-hidden">
+    </div>
+</section>
+  <section id="team" class="py-24 bg-black text-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-6">
             <div class="mb-20 border-b border-slate-800 pb-8">
                 <h2 class="text-4xl md:text-5xl font-display font-bold mb-4">Mentes Maestras. <br /><span
@@ -260,168 +246,99 @@
                 </p>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-1">
-                <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer">
-                    <img src="./assets/team/ALEX_PERFIL.png" alt="Alejandro"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                            <p class="text-xl font-display font-bold leading-tight text-white mb-4">"La banca
-                                tradicional vende trámites. Nosotros construimos ecosistemas invisibles y sin fricción."
-                            </p>
-                            <a href="https://www.linkedin.com/in/alejandromv?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                                target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest 
-          text-blue-400 hover:text-white transition-colors border border-blue-400/30 
-          hover:border-white px-3 py-2">
-                                Conectar
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="#1877F2">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 
-                 2.239 5 5 5h14c2.761 0 5-2.239 
-                 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-                 19h-3v-10h3v10zm-1.5-11.271c-.966 
-                 0-1.75-.79-1.75-1.764s.784-1.764 
-                 1.75-1.764c.967 0 1.75.79 
-                 1.75 1.764s-.783 1.764-1.75 
-                 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 
-                 0v5.604h-3v-10h3v1.569c1.396-2.586 
-                 7-2.777 7 2.476v5.955z" />
-                                </svg>
-                            </a>
-
-                        </div>
-                        <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
-                            <h3 class="text-lg font-bold text-white">Alejandro Maldonado</h3>
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Fintech Advisor</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer">
-                    <img src="./assets/team/FREDY_PERFIL.png" alt="Fredy"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                            <p class="text-xl font-display font-bold leading-tight text-white mb-4">"El 'Legacy' es una
-                                excusa. Si tarda 6 meses en desplegarse, ya es obsoleto. Código limpio o nada." </p>
-                            <a href="https://www.linkedin.com/in/fredyvalle?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                                target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest
-          text-blue-400 hover:text-white transition-colors border border-blue-400/30 
-          hover:border-white px-3 py-2">
-                                Ver Stack Técnico
-
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="#1877F2">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 
-                 2.239 5 5 5h14c2.761 0 5-2.239 
-                 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-                 19h-3v-10h3v10zm-1.5-11.271c-.966 
-                 0-1.75-.79-1.75-1.764s.784-1.764 
-                 1.75-1.764c.967 0 1.75.79 
-                 1.75 1.764s-.783 1.764-1.75 
-                 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 
-                 0v5.604h-3v-10h3v1.569c1.396-2.586 
-                 7-2.777 7 2.476v5.955z" />
-                                </svg>
-
-                            </a>
-
-                        </div>
-                        <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
-                            <h3 class="text-lg font-bold text-white">Fredy Valle</h3>
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">CTO & Co-Founder/p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer">
-                    <img src="./assets/team/RODO_PERFIL.png" alt="Rodolfo"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                            <p class="text-xl font-display font-bold leading-tight text-white mb-4">"El cumplimiento
-                                normativo no debe ser un freno, sino el cimiento para escalar a velocidad Fintech." </p>
-                            <a href="https://www.linkedin.com/in/rodolfotorres-?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                                target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest
-          text-blue-400 hover:text-white transition-colors border border-blue-400/30 
-          hover:border-white px-3 py-2">
-
-                                Agendar Estrategia
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="#1877F2">
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 
-                 2.239 5 5 5h14c2.761 0 5-2.239 
-                 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-                 19h-3v-10h3v10zm-1.5-11.271c-.966 
-                 0-1.75-.79-1.75-1.764s.784-1.764 
-                 1.75-1.764c.967 0 1.75.79 
-                 1.75 1.764s-.783 1.764-1.75 
-                 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 
-                 0v5.604h-3v-10h3v1.569c1.396-2.586 
-                 7-2.777 7 2.476v5.955z" />
-                                </svg>
-
-                            </a>
-
-                        </div>
-                        <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
-                            <h3 class="text-lg font-bold text-white">Rodolfo Torres</h3>
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Chief Strategy</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer">
-                    <img src="./assets/team/CRIS_PERFIL.png" alt="José"
-                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
-                    <div
-                        class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
-                    </div>
-                    <div
-                        class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                        <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                            <p class="text-xl font-display font-bold leading-tight text-white mb-4">"En la banca antigua
-                                se supone. En Fintech.land los datos deciden. Riesgo medido con IA, no con intuición."
-                            </p>
-                            <a href="https://www.linkedin.com/in/jcibarrasanchez?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                                target="_blank" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest
-          text-blue-400 hover:text-white transition-colors border border-blue-400/30 
-          hover:border-white px-3 py-2">
-
-                                Ver Modelo de Datos
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-                                    fill="#1877F2"> <!-- azul fijo -->
-                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 
-                 2.239 5 5 5h14c2.761 0 5-2.239 
-                 5-5v-14c0-2.761-2.239-5-5-5zm-11 
-                 19h-3v-10h3v10zm-1.5-11.271c-.966 
-                 0-1.75-.79-1.75-1.764s.784-1.764 
-                 1.75-1.764c.967 0 1.75.79 
-                 1.75 1.764s-.783 1.764-1.75 
-                 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 
-                 0v5.604h-3v-10h3v1.569c1.396-2.586 
-                 7-2.777 7 2.476v5.955z" />
-                                </svg>
-
-                            </a>
-
-                        </div>
-                        <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
-                            <h3 class="text-lg font-bold text-white">José C. Ibarra</h3>
-                            <p class="text-xs text-slate-400 uppercase tracking-wider">Chief Digital Officer</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer rounded-2xl">
+        <img src="./assets/team/ALEX_PERFIL.png" alt="Alejandro"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
+        </div>
+        <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <p class="text-xl font-display font-bold leading-tight text-white mb-4">"La banca tradicional vende trámites. Nosotros construimos ecosistemas invisibles y sin fricción."</p>
+                <a href="https://www.linkedin.com/in/alejandromv" target="_blank" 
+                   class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-white transition-colors border border-blue-400/30 hover:border-white px-3 py-2">
+                    Conectar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#1877F2">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.271c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764c.967 0 1.75.79 1.75 1.764s-.783 1.764-1.75 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-10h3v1.569c1.396-2.586 7-2.777 7 2.476v5.955z" />
+                    </svg>
+                </a>
             </div>
+            <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
+                <h3 class="text-lg font-bold text-white">Alejandro Maldonado</h3>
+                <p class="text-xs text-slate-400 uppercase tracking-wider">Fintech Advisor</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer rounded-2xl">
+        <img src="./assets/team/FREDY_PERFIL.png" alt="Fredy"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
+        </div>
+        <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <p class="text-xl font-display font-bold leading-tight text-white mb-4">"El 'Legacy' es una excusa. Si tarda 6 meses en desplegarse, ya es obsoleto. Código limpio o nada."</p>
+                <a href="https://www.linkedin.com/in/fredyvalle" target="_blank" 
+                   class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-white transition-colors border border-blue-400/30 hover:border-white px-3 py-2">
+                    Conectar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#1877F2">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.271c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764c.967 0 1.75.79 1.75 1.764s-.783 1.764-1.75 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-10h3v1.569c1.396-2.586 7-2.777 7 2.476v5.955z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
+                <h3 class="text-lg font-bold text-white">Fredy Valle</h3>
+                <p class="text-xs text-slate-400 uppercase tracking-wider">CTO & Co-Founder</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer rounded-2xl">
+        <img src="./assets/team/RODO_PERFIL.png" alt="Rodolfo"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
+        </div>
+        <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <p class="text-xl font-display font-bold leading-tight text-white mb-4">"El cumplimiento normativo no debe ser un freno, sino el cimiento para escalar a velocidad Fintech."</p>
+                <a href="https://www.linkedin.com/in/rodolfotorres-" target="_blank" 
+                   class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-white transition-colors border border-blue-400/30 hover:border-white px-3 py-2">
+                    Conectar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#1877F2">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.271c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764c.967 0 1.75.79 1.75 1.764s-.783 1.764-1.75 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-10h3v1.569c1.396-2.586 7-2.777 7 2.476v5.955z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
+                <h3 class="text-lg font-bold text-white">Rodolfo Torres</h3>
+                <p class="text-xs text-slate-400 uppercase tracking-wider">Chief Strategy</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative group aspect-[3/4] overflow-hidden bg-slate-900 cursor-pointer rounded-2xl">
+        <img src="./assets/team/CRIS_PERFIL.png" alt="José"
+            class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-out group-hover:scale-105 opacity-80 group-hover:opacity-100">
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 group-hover:opacity-60 transition-opacity">
+        </div>
+        <div class="absolute bottom-0 left-0 w-full p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+            <div class="mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                <p class="text-xl font-display font-bold leading-tight text-white mb-4">"En la banca antigua se supone. En Fintech.land los datos deciden. Riesgo medido con IA, no con intuición."</p>
+                <a href="https://www.linkedin.com/in/jcibarrasanchez" target="_blank" 
+                   class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-white transition-colors border border-blue-400/30 hover:border-white px-3 py-2">
+                    Conectar
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="#1877F2">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.271c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764c.967 0 1.75.79 1.75 1.764s-.783 1.764-1.75 1.764zm13.5 11.271h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-10h3v1.569c1.396-2.586 7-2.777 7 2.476v5.955z" />
+                    </svg>
+                </a>
+            </div>
+            <div class="border-t border-slate-700 pt-4 group-hover:border-transparent transition-colors">
+                <h3 class="text-lg font-bold text-white">José C. Ibarra</h3>
+                <p class="text-xs text-slate-400 uppercase tracking-wider">Chief Digital Officer</p>
+            </div>
+        </div>
+    </div>
+</div>
 
             <div class="mt-16 flex flex-col md:flex-row items-center justify-between border-t border-slate-800 pt-8">
                 <p class="text-slate-500 text-sm mb-4 md:mb-0">
@@ -431,7 +348,6 @@
             </div>
         </div>
     </section>
-
     <section id="cases" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-end mb-12">
@@ -440,117 +356,134 @@
                     Seleccionado</span>
             </div>
 
-            <div class="space-y-8">
-                <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
-                    data-id="finsus">
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
-                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">FINSUS</div>
-                        <div
-                            class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                            100% DIGITAL
-                        </div>
-                        <div class="text-lg font-medium text-slate-500 mb-6">Sin Sucursales</div>
-                        <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
-                            Ver Detalles
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
-                                <path d="m9 18 6-6-6-6" />
-                            </svg>
-                        </div>
-                    </div>
+   <section class="relative py-12">
+    <div class="max-w-7xl mx-auto px-6">
+        
+     <div class="space-y-8 relative z-20">
+
+    <div class="space-y-8">
+        <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
+            data-id="finsus">
+            <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+                
+                <img src="assets/Logos/finsus.png" 
+                     alt="Logo Finsus" 
+                     class="h-32 w-auto -mb-10 -ml-4 object-contain self-start">
+                
+                <div
+                    class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+                    100% DIGITAL
+                </div>
+                <div class="text-lg font-medium text-slate-500 mb-6">Sin Sucursales</div>
+                <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
+                    Ver Detalles
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </div>
+            </div>
                     <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
                         <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
                         </div>
-                         <video 
-    class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
-    autoplay 
-    loop 
-    muted 
-    playsinline>
-    <source src="videos/finsus.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
-</video>
+                        <video 
+                            class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline>
+                            <source src="videos/finsus.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
+                    </div>
+                </div>
+
+        <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
+    data-id="montepio">
+    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+        
+        <img src="assets/Logos/montepío.png" 
+             alt="Logo Montepío" 
+             class="h-48 w-auto -mb-20 -ml-4 object-contain self-start">
+
+        <div
+            class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+            VALUACIÓN IA
+        </div>
+        <div class="text-lg font-medium text-slate-500 mb-6">Tiempo Real</div>
+        <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
+            Ver Detalles
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+                <path d="m9 18 6-6-6-6" />
+            </svg>
+        </div>
+    </div>
+                    <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
+                        <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
+                        </div>
+                        <video 
+                            class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline>
+                            <source src="videos/montepio.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
                     </div>
                 </div>
 
                 <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
-                    data-id="montepio">
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
-                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">MONTEPÍO</div>
-                        <div
-                            class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                            VALUACIÓN IA
-                        </div>
-                        <div class="text-lg font-medium text-slate-500 mb-6">Tiempo Real</div>
-                        <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
-                            Ver Detalles
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
-                                <path d="m9 18 6-6-6-6" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
-                        <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
-                        </div>
-                         <video 
-    class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
-    autoplay 
-    loop 
-    muted 
-    playsinline>
-    <source src="videos/montepio.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
-</video>
-                    </div>
-                </div>
-                <div class="bg-white group cursor-pointer border border-slate-200 hover:border-blue-400 transition-all shadow-sm hover:shadow-xl overflow-hidden flex flex-col md:flex-row h-auto md:h-80 case-trigger"
-                    data-id="crediquincena">
-                    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
-                        <div class="mb-2 text-xs font-bold tracking-widest text-slate-400 uppercase">
-                            CREDIQUINCENA / JUBILADOS IMSS
-                        </div>
+    data-id="crediquincena">
+    <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative">
+        
+        <img src="assets/Logos/crediquincena.png" 
+             alt="Logo Crediquincena" 
+             class="h-48 w-auto -mb-20 -ml-4 object-contain self-start">
 
-                        <div
-                            class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                            EFICIENCIA OPERATIVA
-                        </div>
+        <div
+            class="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+            EFICIENCIA OPERATIVA
+        </div>
 
-                        <div class="text-lg font-medium text-slate-500 mb-6">
-                            +6,000 Expedientes Digitales
-                        </div>
+        <div class="text-lg font-medium text-slate-500 mb-6">
+            +6,000 Expedientes Digitales
+        </div>
 
-                        <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
-                            Ver Detalles
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
-                                <path d="m9 18 6-6-6-6" />
-                            </svg>
-                        </div>
-                    </div>
+        <div class="flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-wide">
+            Ver Detalles
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" class="group-hover:translate-x-1 transition-transform">
+                <path d="m9 18 6-6-6-6" />
+            </svg>
+        </div>
+    </div>
 
                     <div class="md:w-1/2 relative overflow-hidden bg-slate-200">
                         <div class="absolute inset-0 bg-slate-900/10 z-10 group-hover:bg-transparent transition-colors">
                         </div>
 
                         <video 
-    class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
-    autoplay 
-    loop 
-    muted 
-    playsinline>
-    <source src="videos/imss.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
-</video>
+                            class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+                            autoplay 
+                            loop 
+                            muted 
+                            playsinline>
+                            <source src="videos/imss.mp4" type="video/mp4">
+                            Tu navegador no soporta videos HTML5.
+                        </video>
                     </div>
                 </div>
 
             </div>
         </div>
-    </section>
+    </div>
+</section>
+</section>
 
     <section id="contact" class="bg-slate-900 text-white py-24">
         <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
