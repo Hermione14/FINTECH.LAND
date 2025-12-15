@@ -242,22 +242,30 @@ body {
 .desktop-menu {
   display: flex;
   gap: 2rem;
-  margin-right: 2rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #475569;
 }
 
-@media (min-width: 768px) {
+.btn-primary {
+  display: inline-flex;
+}
+
+.btn-mobile-toggle {
+  display: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
   .desktop-menu {
-    display: flex;
-  }
-  .btn-mobile-toggle {
     display: none;
-    margin-left: auto;
   }
-  .mobile-overlay {
-    display: none !important;
+
+  .btn-primary {
+    display: none;
+  }
+
+  .btn-mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
